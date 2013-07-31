@@ -22,8 +22,8 @@ module.exports = function(grunt) {
             },
             spec: {
                 files: [
-                    'app/**/*',
-                    '!app/components/**/*'
+                    'dev/**/*',
+                    '!dev/app/components/**/*'
                 ]
             }
         },
@@ -33,7 +33,7 @@ module.exports = function(grunt) {
                 options : {
                     port       : 9001,
                     hostname: 'localhost',
-                    base       : './app/',
+                    base       : './dev/',
                     middleware : function (connect, options) {
                         return [lrSnippet, folderMount(connect, options.base)]
                     }
@@ -50,7 +50,7 @@ module.exports = function(grunt) {
         copy: {
             build: {
                 files: [
-                    {expand: true, cwd: 'app/', src: ['**'], dest: 'build'}
+                    {expand: true, cwd: 'dev/', src: ['**'], dest: 'build'}
                 ]
             }
         },
