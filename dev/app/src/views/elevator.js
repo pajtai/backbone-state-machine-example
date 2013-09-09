@@ -1,6 +1,6 @@
 define([
     'bbsm',
-    'text!../templates/elevator.html'
+    'text!../../templates/elevator.html'
 ], function (BBSM, elevatorTemplate) {
 
     // Elevator states

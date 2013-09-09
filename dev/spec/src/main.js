@@ -29,14 +29,21 @@ require.config({
         backbone: '../../app/components/backbone/backbone',
         bbsm: '../../app/components/backbone-state-machine/app/src/bbsm',
         text: '../../app/components/requirejs-text/text',
-        elevator: '../../app/views/elevator',
-        floor: '../../app/views/floor',
-        building: '../../app/views/building',
-        buttonPressedCollection: '../../appp/models/buttonPressedCollection'
+        elevator: '../../app/src/views/elevator',
+        floor: '../../app/src/views/floor',
+        building: '../../app/src/views/building',
+        buttonPressedCollection: '../../app/src/models/buttonPressedCollection'
     }
 });
 
 require([
     'squire'
 ], function (Squire) {
+    var injector = new Squire();
+    injector.require(['elevator'], function(Elevator) {
+            new Elevator();
+        },
+        function(err) {
+            console.log("Elevator error.")
+        });
 });
